@@ -55,7 +55,8 @@ def ask_email(config: Config) -> str:
                 return config.used_emails[number-1]
 
         if email_regex.match(choice):
-            config.used_emails.append(choice)
+            if choice not in config.used_emails:
+                config.used_emails.append(choice)
             return choice
 
         config.print('retry_input')
