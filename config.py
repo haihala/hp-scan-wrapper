@@ -123,7 +123,14 @@ class Config:
 
 def parse_args() -> Config:
     parser = argparse.ArgumentParser(description='Skannaustyökalu')
-    parser.add_argument('--config', dest='config_path')
+    parser.add_argument('--config_path')
+    parser.add_argument('--target_dir')
+    parser.add_argument('--device')
+    parser.add_argument('--file_explorer')
+    parser.add_argument('--date_format_string')
+    parser.add_argument('--smtp_sender')
+    parser.add_argument('--smtp_password')
+    parser.add_argument('--locale')
 
     args = parser.parse_args()
     return Config(args)
