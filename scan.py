@@ -58,7 +58,12 @@ def scan_page(config: Config) -> str:
         shell=True,
         stdin=subprocess.PIPE,
     )
-    handle.stdin.write(bytes(f'{config.device}\n'))
+    handle.stdin.write(
+        bytes(
+            f'{config.device}\n',
+            encoding='utf-8',
+        )
+    )
     handle.wait()
     return path
 
