@@ -60,7 +60,7 @@ def scan_page(config: Config) -> str:
         stdin=subprocess.PIPE,
         stderr=subprocess.PIPE,
     )
-    handle.communicate(input=f'{config.device}\n')
+    handle.communicate(input=f'{config.device}\n'.encode())
     handle.wait()
     return path
 
