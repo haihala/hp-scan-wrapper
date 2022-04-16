@@ -56,14 +56,11 @@ def scan_page(config: Config) -> str:
     handle = subprocess.Popen(
         f'hp-scan --output={path}',
         shell=True,
+        stdout=subprocess.PIPE,
         stdin=subprocess.PIPE,
+        stderr=subprocess.PIPE,
     )
-    handle.stdin.write(
-        bytes(
-            f'{config.device}\n',
-            encoding='utf-8',
-        )
-    )
+    handle.communicate(input=f'{config.device}\n')
     handle.wait()
     return path
 
