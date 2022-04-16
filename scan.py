@@ -54,7 +54,7 @@ def scan_page(config: Config) -> str:
     file_name = datetime.now().strftime(config.date_format_string)
     path = ospath.join(config.target_dir, file_name)
     handle = subprocess.Popen(
-        f'hp-scan --output={path}',
+        f'hp-scan --output="{path}"',
         shell=True,
         stdout=subprocess.PIPE,
         stdin=subprocess.PIPE,
