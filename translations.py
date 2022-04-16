@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+
 EN = {
     'scan_page': 'Scanning a page',
     'another_page_prompt': 'Scan more pages (y/n): ',
